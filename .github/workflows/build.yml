@@ -1,31 +1,35 @@
-name:Build MineGPT
-'on':workflow_dispatch:
+name: Build MineGPT
 
-jobs:build:runs-on: ubuntu-22.04
+'on':
+workflow_dispatch:
+
+jobs:
+build:
+runs-on: ubuntu-22.04
 
 steps:
-  - name:Checkout source
-    uses:actions/checkout@v4
+  - name: Checkout source
+    uses: actions/checkout@v4
 
-  - name:Set up Java 8
-    uses:actions/setup-java@v4
+  - name: Set up Java 8
+    uses: actions/setup-java@v4
     with:
       distribution: temurin
       java-version: '8'
 
-  - name:Download Gradle
+  - name: Download Gradle
     run: |
       wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip
       unzip -q gradle-4.10.3-bin.zip
 
-  - name:Build MineGPT
+  - name: Build MineGPT
     run: |
       chmod +x gradle-4.10.3/bin/gradle
       ./gradle-4.10.3/bin/gradle build --no-daemon
 
-  - name:Upload JAR
-    uses:actions/upload-artifact@v4
+  - name: Upload JAR
+    uses: actions/upload-artifact@v4
     with:
-      name:MineGPT-JAR
-      path:build/libs/*.jar
-      if-no-files-found:error
+      name: MineGPT-JAR
+      path: build/libs/*.jar
+      if-no-files-found: error
