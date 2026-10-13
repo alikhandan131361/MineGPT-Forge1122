@@ -1,5 +1,4 @@
 name: Build MineGPT
-
 'on':workflow_dispatch:
 
 jobs:build:runs-on: ubuntu-22.04
