@@ -1,0 +1,12 @@
+[
+  {
+    "modid": "minegpt",
+    "name": "MineGPT",
+    "description": "An offline Minecraft companion prototype.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": ["MineGPT project"],
+    "credits": "Prototype scaffold",
+    "acceptableRemoteVersions": "*"
+  }
+]
